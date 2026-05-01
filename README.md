@@ -1,16 +1,13 @@
-# **Hackathon 2026 – Full Stack Web Application**
+# **Hackathon Management System – Full Stack Web Application**
 
-### **Assignment Submission Report**
-
-**Submitted by:** *Gaurav Ghosh, CSE, NIT Silchar*
-**Live Website:** [https://hackathon-frontend1-iy6j.onrender.com](https://hackathon-frontend1-iy6j.onrender.com)
+**Live Website:** [https://hackathon-website-eight-ebon.vercel.app](https://hackathon-website-eight-ebon.vercel.app)
 **Tech Stack:** MERN (MongoDB, Express.js, React.js, Node.js)
 
 ---
 
 ## **1. Project Overview**
 
-This project is a fully functional **Hackathon Management System** designed for **Hackathon 2026**, a national-level event.
+This project is a fully functional **Hackathon Management System** designed for managing ** College Hackathon**.
 The system supports:
 
 * User registration and authentication
@@ -20,6 +17,8 @@ The system supports:
 * Admin dashboard
 * Certificate template upload
 * Live leaderboard system
+* Media storage via Cloudinary
+* Email notifications via Nodemailer
 * MongoDB Atlas cloud database integration
 
 The application is built using the MERN stack and deployed on Render.
@@ -75,40 +74,43 @@ The project follows a **client–server architecture**:
 
 ### **User Features**
 
-* Register & Login
-* Join/Create team
-* Attempt quiz
-* View results & team status
-* Download certificates (when uploaded)
+* Register & Login with JWT Authentication
+* Join/Create team and manage team members
+* Attempt online quiz rounds
+* View real-time results & team status
+* Download event certificates (when uploaded by admin)
 
 ### **Admin Features**
 
-* View all users
-* Manage and delete teams
-* Verify team payments
+* Comprehensive Admin Dashboard
+* View all users and manage/delete teams
+* Verify manual team payments securely
 * Upload certificate templates (Round 1 & 2)
-* Manage quiz questions
-* Access round results & leaderboard
+* Manage quiz questions and state-based workflows
+* Access round results & live leaderboard
 
 ### **Technical Features**
 
-* JWT-based secure login
+* JWT-based secure login and session management
 * Password hashing using bcrypt
-* File upload using Multer
+* File upload and media storage using Multer & Cloudinary
+* Email notifications powered by Nodemailer
+* Server-side input validation using express-validator
 * Centralized error handling
-* Role-based access control
-* Cloud deployment using Render
+* Role-based access control (Admin vs User)
+* Cloud deployment using Vercel (Frontend) and Render (Backend)
+* MongoDB Atlas Cloud Database Integration
 
 ---
 
 ## **5. Deployment Links**
 
-| Component       | URL                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| **Frontend**    | [https://hackathon-frontend1-iy6j.onrender.com](https://hackathon-frontend1-iy6j.onrender.com) |
-| **Backend API** | [https://hackathon-backend1-akuo.onrender.com](https://hackathon-backend1-akuo.onrender.com)   |
+| Component       | URL                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------- |
+| **Frontend**    | [https://hackathon-website-eight-ebon.vercel.app](https://hackathon-website-eight-ebon.vercel.app) |
+| **Backend API** | [https://hackathon-website-lvny.onrender.com](https://hackathon-website-lvny.onrender.com)         |
 
-Both components are hosted on **Render**.
+Frontend is hosted on **Vercel** and backend on **Render**.
 Database is hosted on **MongoDB Atlas**.
 
 ---
@@ -117,34 +119,45 @@ Database is hosted on **MongoDB Atlas**.
 
 ### **Step 1: Clone the project**
 
-```
-git clone https://github.com/gauravghosh24/hackathon-2026-website.git
+```bash
+git clone https://github.com/kirtigayatri/hackathon_website.git
 ```
 
-### **Step 2: Install dependencies**
+### **Step 2: Setup Environment Variables**
 
-**Frontend:**
-
+**Backend (`server/.env`):**
+Create a `.env` file in the `server` directory and add the following:
+```env
+PORT=5000
+MONGODB_URI=<Your MongoDB Atlas Connection String>
+JWT_SECRET=<Your JWT Secret>
+CLOUDINARY_CLOUD_NAME=<Your Cloudinary Cloud Name>
+CLOUDINARY_API_KEY=<Your Cloudinary API Key>
+CLOUDINARY_API_SECRET=<Your Cloudinary API Secret>
 ```
-cd client
+
+**Frontend (`client/.env`):**
+Create a `.env` file in the `client` directory and add the following:
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+### **Step 3: Install dependencies and Run**
+
+**Backend:**
+Open a terminal and run:
+```bash
+cd server
 npm install
 npm run dev
 ```
 
-**Backend:**
-
-```
-cd server
+**Frontend:**
+Open a new terminal and run:
+```bash
+cd client
 npm install
-npm start
-```
-
-### **Step 3: Create `.env` file (Backend)**
-
-```
-PORT=5000
-MONGODB_URI=<MongoDB Atlas URL>
-JWT_SECRET=your_secret
+npm run dev
 ```
 
 ---
