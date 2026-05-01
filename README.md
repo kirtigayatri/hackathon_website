@@ -1,7 +1,7 @@
 # **Hackathon Management System – Full Stack Web Application**
 
 **Live Website:** [https://hackathon-website-eight-ebon.vercel.app](https://hackathon-website-eight-ebon.vercel.app)
-**Tech Stack:** MERN (MongoDB, Express.js, React.js, Node.js)
+* **Tech Stack:** MERN (MongoDB, Express.js, React.js, Node.js)
 
 ---
 
